@@ -9,7 +9,19 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
-  plugins: [],
+  plugins: [
+    [
+      '@tarojs/plugin-html', {
+        modifyElements(inline, block) {
+          // 行内元素增加 <xxx>
+          // inline.push('xxx')
+          // 行内元素添加 <span>，块级元素删除 <span>
+          // inline.push('span')
+          // block.splice(block.indexOf('view'), 1)
+        }
+      }
+    ],
+  ],
   defineConstants: {
   },
   copy: {

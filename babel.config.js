@@ -4,7 +4,15 @@ module.exports = {
   presets: [
     ['taro', {
       framework: 'vue',
-      ts: false
+      ts: true
     }]
-  ]
+  ],
+  plugins: [
+    ['import', {
+      libraryName: 'vant',
+      libraryDirectory: 'es',
+      // style: true,
+      style: (name) => `${name}/style/less`,
+    }],
+  ],
 }

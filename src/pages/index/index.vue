@@ -1,37 +1,50 @@
 <template>
   <view class="index">
     <view class="index">
-    <AtNoticebar marquee>
-      欢迎使用 Taro UI Vue
-    </AtNoticebar>
-    <AtButton
-      type="primary"
-      :on-click="handleClick"
-    >
-      AtButton
-    </AtButton>
-    <AtToast :is-opened="show" :text="msg" :on-close="handleClose"></AtToast>
-  </view>
+      <AtNoticebar marquee>
+        欢迎使用 Taro UI Vue
+      </AtNoticebar>
+      <AtButton
+        type="primary"
+        :on-click="handleClick"
+      >
+        AtButton
+      </AtButton>
+      <AtToast :is-opened="show" :text="msg" :on-close="handleClose"></AtToast>
+    </view>
+    <van-picker ref="picker"
+      :visible-item-count="itemCount" :columns="columns">
+    </van-picker>
   </view>
 </template>
 
 <script>
 // 按需引入, 更小的应用体积
-import { AtButton, AtToast, AtNoticebar } from 'taro-ui-vue'
+import { AtButton, AtToast, AtNoticebar } from 'taro-ui-vue';
+import {
+  ActionSheet,
+  Picker,
+  DatetimePicker
+} from 'vant';
 import "taro-ui-vue/dist/style/components/button.scss"
 import "taro-ui-vue/dist/style/components/toast.scss"
 import "taro-ui-vue/dist/style/components/noticebar.scss"
-import './index.scss' 
+import './index.scss'
 export default {
     components: {
     AtButton,
     AtToast,
-    AtNoticebar
+    AtNoticebar,
+    [ActionSheet.name]: ActionSheet,
+    [Picker.name]: Picker,
+    [DatetimePicker.name]: DatetimePicker,
   },
   data () {
     return {
       msg: 'Hello world!',
-      show: false
+      show: false,
+      itemCount: 5,
+      columns: [],
     }
   },
   methods: {
