@@ -1,9 +1,10 @@
 <template>
   <view class="index">
-    <view class="index">
+    <view class="index-container" :class="toogleClass ? 'test-class-toogle' : ''">
       <AtNoticebar marquee>
         欢迎使用 Taro UI Vue
       </AtNoticebar>
+      <view @tap="toggleClassHandler">切换class 的时候 hydrated 类不在了  导致页面不展示</view>
       <AtButton
         type="primary"
         :on-click="handleClick"
@@ -45,9 +46,15 @@ export default {
       show: false,
       itemCount: 5,
       columns: [],
+      toogleClass: true,
     }
   },
+  mounted() {
+  },
   methods: {
+    toggleClassHandler() {
+      this.toogleClass = !this.toogleClass;
+    },
     handleClick () {
       this.show = true
     },
