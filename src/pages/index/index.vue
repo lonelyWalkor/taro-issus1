@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <view class="index">
     <view class="index-container" :class="toogleClass ? 'test-class-toogle' : ''">
       <AtNoticebar marquee>
@@ -13,20 +13,12 @@
       </AtButton>
       <AtToast :is-opened="show" :text="msg" :on-close="handleClose"></AtToast>
     </view>
-    <van-picker ref="picker"
-      :visible-item-count="itemCount" :columns="columns">
-    </van-picker>
   </view>
-</template>
+</template> -->
 
 <script>
 // 按需引入, 更小的应用体积
 import { AtButton, AtToast, AtNoticebar } from 'taro-ui-vue';
-import {
-  ActionSheet,
-  Picker,
-  DatetimePicker
-} from 'vant';
 import "taro-ui-vue/dist/style/components/button.scss"
 import "taro-ui-vue/dist/style/components/toast.scss"
 import "taro-ui-vue/dist/style/components/noticebar.scss"
@@ -36,9 +28,6 @@ export default {
     AtButton,
     AtToast,
     AtNoticebar,
-    [ActionSheet.name]: ActionSheet,
-    [Picker.name]: Picker,
-    [DatetimePicker.name]: DatetimePicker,
   },
   data () {
     return {
@@ -62,5 +51,8 @@ export default {
       this.show = false
     }
   },
-    }
+  render(h) {
+    return h();
+  },
+}
 </script>
