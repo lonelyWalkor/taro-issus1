@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
   <view class="index">
     <view class="index-container" :class="toogleClass ? 'test-class-toogle' : ''">
       <AtNoticebar marquee>
@@ -14,7 +14,7 @@
       <AtToast :is-opened="show" :text="msg" :on-close="handleClose"></AtToast>
     </view>
   </view>
-</template> -->
+</template>
 
 <script>
 // 按需引入, 更小的应用体积

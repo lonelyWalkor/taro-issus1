@@ -81,7 +81,14 @@ const config = {
           generateScopedName: '[name]__[local]___[hash:base64:5]'
         }
       }
-    }
+    },
+    enableExtract: true,
+    // 禁用 css 排序检查
+    miniCssExtractPluginOption: {
+      ignoreOrder: true,
+      filename: 'css/[name].[fullhash:base64].css',
+      chunkFilename: 'css/[name].[fullhash:base64].css',
+    },
   }
 }
 
